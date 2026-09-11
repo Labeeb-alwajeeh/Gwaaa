@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جواهر الوجيه | متجر الأزياء والإكسسوارات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald-deep:#0f3d3a;
+    --emerald:#154b47;
+    --gold:#c6a15b;
+    --gold-light:#e9d9b3;
+    --wine:#6d2338;
+    --cream:#f6f1e7;
+    --ivory:#fbf8f2;
+    --ink:#20211c;
+    --ink-soft:#54564c;
+    --line:#dcd2ba;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  h1,h2,h3,.logo,.price{font-family:'Amiri',serif;}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,248,242,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1180px;margin:0 auto;
+  }
+  .logo{font-size:26px;color:var(--emerald-deep);letter-spacing:.5px;}
+  .logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:34px;font-size:15px;color:var(--ink-soft);}
+  .nav-links a{position:relative;padding:4px 0;transition:color .25s;}
+  .nav-links a:hover{color:var(--emerald-deep);}
+  .nav-links a::after{
+    content:"";position:absolute;right:0;bottom:-3px;width:0;height:1px;
+    background:var(--gold);transition:width .3s;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--emerald-deep);color:var(--ivory);
+    padding:10px 20px;border-radius:2px;font-size:14px;
+    transition:background .25s;
+  }
+  .nav-cta:hover{background:var(--wine);}
+  .burger{display:none;font-size:26px;color:var(--emerald-deep);cursor:pointer;background:none;border:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:86px 28px 90px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(198,161,91,.16), transparent 45%),
+      linear-gradient(180deg,#0f3d3a 0%, #123f3c 55%, #143f3c 100%);
+    color:var(--ivory);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg, rgba(198,161,91,.05) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center;}
+  .eyebrow-line{display:flex;align-items:center;gap:12px;margin-bottom:22px;color:var(--gold-light);font-size:14px;letter-spacing:.5px;}
+  .eyebrow-line .rule{width:38px;height:1px;background:var(--gold);}
+  .hero h1{font-size:52px;line-height:1.35;color:var(--ivory);font-weight:700;margin-bottom:22px;}
+  .hero h1 em{font-style:normal;color:var(--gold);}
+  .hero p{font-size:17px;color:#d8e2df;max-width:480px;margin-bottom:34px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold);color:var(--emerald-deep);
+    padding:15px 34px;border-radius:2px;font-weight:700;font-size:15px;
+    transition:transform .25s, background .25s;display:inline-block;
+  }
+  .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-outline{
+    border:1px solid rgba(251,248,242,.4);color:var(--ivory);
+    padding:14px 30px;border-radius:2px;font-size:15px;
+    transition:border-color .25s, background .25s;
+  }
+  .btn-outline:hover{border-color:var(--gold);background:rgba(198,161,91,.1);}
+
+  .hero-visual{position:relative;height:420px;}
+  .plate{
+    position:absolute;border-radius:3px;overflow:hidden;
+    box-shadow:0 30px 60px rgba(0,0,0,.35);
+  }
+  .plate.a{width:230px;height:300px;top:0;right:40px;
+    background:linear-gradient(160deg,#1f524d,#0f3d3a 70%);
+    display:flex;align-items:flex-end;padding:18px;
+    border:1px solid rgba(198,161,91,.35);
+  }
+  .plate.b{width:190px;height:230px;bottom:0;right:210px;
+    background:linear-gradient(160deg,var(--wine),#4a1727 70%);
+    border:1px solid rgba(198,161,91,.3);
+  }
+  .plate-tag{color:var(--gold-light);font-size:13px;letter-spacing:.4px;}
+  .plate svg{position:absolute;opacity:.9;}
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--gold);color:var(--emerald-deep);
+    font-size:13px;font-weight:700;letter-spacing:.4px;
+    padding:11px 0;overflow:hidden;white-space:nowrap;
+  }
+  .strip .track{display:inline-flex;gap:46px;animation:scroll 26s linear infinite;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ---------- Section heading ---------- */
+  .section{padding:86px 0;}
+  .section-head{max-width:640px;margin:0 auto 52px;text-align:center;}
+  .section-head .kicker{color:var(--gold);font-size:13px;letter-spacing:.4px;margin-bottom:10px;display:block;}
+  .section-head h2{font-size:36px;color:var(--emerald-deep);margin-bottom:14px;}
+  .section-head p{color:var(--ink-soft);font-size:15.5px;}
+
+  /* ---------- Categories ---------- */
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .cat-card{
+    position:relative;height:300px;border-radius:3px;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:flex-end;padding:26px;
+    color:var(--ivory);
+  }
+  .cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, rgba(15,61,58,.85));z-index:1;}
+  .cat-card > *{position:relative;z-index:2;}
+  .cat-1{background:linear-gradient(135deg,#2a2622,#0f3d3a);}
+  .cat-2{background:linear-gradient(135deg,#3d2f22,#6d2338);}
+  .cat-3{background:linear-gradient(135deg,#1c1c1c,#154b47);}
+  .cat-card h3{font-size:22px;margin-bottom:6px;}
+  .cat-card span{font-size:13px;color:var(--gold-light);}
+  .cat-icon{position:absolute;top:22px;left:22px;z-index:2;opacity:.85;}
+
+  /* ---------- Products ---------- */
+  .products{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .card{
+    background:var(--cream);border:1px solid var(--line);border-radius:3px;
+    overflow:hidden;transition:box-shadow .3s, transform .3s;
+  }
+  .card:hover{box-shadow:0 18px 36px rgba(15,61,58,.12);transform:translateY(-4px);}
+  .card-media{
+    height:280px;position:relative;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--m1,#154b47),var(--m2,#0f3d3a));
+  }
+  .card-media .badge{
+    position:absolute;top:14px;right:14px;background:var(--gold);color:var(--emerald-deep);
+    font-size:11px;font-weight:700;padding:5px 11px;border-radius:2px;letter-spacing:.3px;
+  }
+  .card-body{padding:20px 22px 24px;}
+  .card-body .cat-label{font-size:12px;color:var(--gold);letter-spacing:.3px;margin-bottom:6px;display:block;}
+  .card-body h3{font-size:19px;color:var(--ink);margin-bottom:8px;font-weight:700;font-family:'Tajawal',sans-serif;}
+  .card-body .desc{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;min-height:38px;}
+  .price-row{display:flex;align-items:center;justify-content:space-between;border-top:1px dashed var(--line);padding-top:14px;}
+  .price{font-size:20px;color:var(--emerald-deep);font-weight:700;}
+  .price small{font-size:12px;color:var(--ink-soft);font-family:'Tajawal',sans-serif;}
+  .order-btn{
+    background:var(--emerald-deep);color:var(--ivory);font-size:13px;
+    padding:9px 16px;border-radius:2px;display:inline-flex;align-items:center;gap:6px;
+    transition:background .25s;
+  }
+  .order-btn:hover{background:var(--wine);}
+
+  .products-footer{text-align:center;margin-top:44px;}
+  .btn-line{
+    border-bottom:1px solid var(--gold);color:var(--emerald-deep);
+    padding-bottom:4px;font-size:15px;font-weight:700;
+  }
+
+  /* ---------- Why us ---------- */
+  .why{background:var(--emerald-deep);color:var(--ivory);}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;}
+  .why-item{text-align:center;padding:0 10px;}
+  .why-item .ic{
+    width:58px;height:58px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--gold);
+  }
+  .why-item h3{font-size:16px;margin-bottom:8px;font-family:'Tajawal',sans-serif;font-weight:700;}
+  .why-item p{font-size:13.5px;color:#cfe0dc;}
+
+  /* ---------- Testimonial / quote ---------- */
+  .quote-block{
+    background:var(--cream);padding:90px 28px;text-align:center;
+  }
+  .quote-block blockquote{
+    max-width:720px;margin:0 auto;font-family:'Amiri',serif;font-size:28px;
+    color:var(--emerald-deep);line-height:1.7;
+  }
+  .quote-block .who{margin-top:22px;color:var(--gold);font-size:14px;letter-spacing:.4px;}
+
+  /* ---------- Contact ---------- */
+  .contact{padding:90px 0;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .contact-info h2{font-size:34px;color:var(--emerald-deep);margin-bottom:18px;}
+  .contact-info p{color:var(--ink-soft);margin-bottom:30px;max-width:440px;}
+  .contact-list{display:flex;flex-direction:column;gap:18px;margin-bottom:30px;}
+  .contact-list li{display:flex;align-items:center;gap:14px;font-size:15px;}
+  .contact-list .ic{
+    width:42px;height:42px;border-radius:50%;background:var(--emerald-deep);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .contact-card{
+    background:var(--emerald-deep);color:var(--ivory);padding:44px 36px;border-radius:3px;
+    position:relative;overflow:hidden;
+  }
+  .contact-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 10%, rgba(198,161,91,.18), transparent 50%);}
+  .contact-card *{position:relative;z-index:1;}
+  .contact-card h3{font-size:22px;margin-bottom:10px;font-family:'Amiri',serif;}
+  .contact-card p{color:#cfe0dc;font-size:14px;margin-bottom:26px;}
+  .contact-form{display:flex;flex-direction:column;gap:14px;}
+  .contact-form input,.contact-form textarea{
+    background:rgba(251,248,242,.08);border:1px solid rgba(251,248,242,.25);
+    color:var(--ivory);padding:13px 15px;border-radius:2px;font-family:'Tajawal',sans-serif;font-size:14px;
+  }
+  .contact-form input::placeholder,.contact-form textarea::placeholder{color:#9fb5b1;}
+  .contact-form button{
+    background:var(--gold);color:var(--emerald-deep);border:none;padding:13px;border-radius:2px;
+    font-weight:700;font-size:14.5px;cursor:pointer;transition:background .25s;font-family:'Tajawal',sans-serif;
+  }
+  .contact-form button:hover{background:var(--gold-light);}
+
+  /* ---------- Footer ---------- */
+  footer{background:#0c2c29;color:#b9cbc7;padding:56px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+  .foot-logo{font-family:'Amiri',serif;font-size:24px;color:var(--ivory);margin-bottom:14px;}
+  .foot-logo span{color:var(--gold);}
+  .foot-col h4{color:var(--ivory);font-size:15px;margin-bottom:16px;font-family:'Tajawal',sans-serif;}
+  .foot-col ul li{margin-bottom:10px;font-size:13.5px;}
+  .foot-col ul li a:hover{color:var(--gold);}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.08);padding-top:22px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#7d938e;
+  }
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-wa{
+    position:fixed;bottom:26px;left:26px;z-index:60;
+    background:#1f524d;color:var(--ivory);width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px rgba(15,61,58,.4);
+    border:1px solid var(--gold);
+  }
+
+  @media(max-width:900px){
+    .nav-links,.nav-cta{display:none;}
+    .burger{display:block;}
+    .hero-inner{grid-template-columns:1fr;text-align:center;}
+    .hero p{margin-inline:auto;}
+    .hero-actions{justify-content:center;}
+    .hero-visual{display:none;}
+    .cats,.products,.why-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:36px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">جواهر <span>الوجيه</span></div>
+    <nav class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#products">منتجاتنا</a>
+      <a href="#why">لماذا نحن</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/967734816453" target="_blank">اطلبي عبر واتساب</a>
+    <button class="burger">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow-line"><span class="rule"></span> متجر أزياء وإكسسوارات نسائية</div>
+      <h1>أناقتُكِ تبدأ من <em>جوهرة</em><br>تختارينها بنفسكِ</h1>
+      <p>فساتين سهرة، عبايات مطرزة، وحقائب مختارة بعناية — تشكيلة جديدة كل أسبوع، وتوصيل إلى جميع مناطق اليمن.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#products">تصفّحي التشكيلة</a>
+        <a class="btn-outline" href="https://wa.me/967734816453" target="_blank">تواصلي معنا مباشرة</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="plate a">
+        <svg class="plate-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#c6a15b" stroke-width="1.2" style="position:absolute;top:20px;left:20px;">
+          <path d="M8 3h8l1 4-3 2 1 12H7L8 9 5 7l3-4z"/>
+        </svg>
+        <div class="plate-tag">فستان سهرة — تصميم حصري</div>
+      </div>
+      <div class="plate b">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1.2" style="position:absolute;top:16px;right:16px;">
+          <circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="track">
+    <span>✦ توصيل لجميع محافظات اليمن &nbsp; ✦ الدفع عند الاستلام داخل صنعاء &nbsp; ✦ قطع محدودة أسبوعياً &nbsp; ✦ جودة مضمونة</span>
+    <span>✦ توصيل لجميع محافظات اليمن &nbsp; ✦ الدفع عند الاستلام داخل صنعاء &nbsp; ✦ قطع محدودة أسبوعياً &nbsp; ✦ جودة مضمونة</span>
+  </div>
+</div>
+
+<section class="section" id="categories">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">تسوّقي حسب القسم</span>
+      <h2>أقسام المتجر</h2>
+      <p>ثلاث تشكيلات أساسية، كل واحدة منتقاة لتناسب مناسبة مختلفة.</p>
+    </div>
+    <div class="cats">
+      <a class="cat-card cat-1" href="#products">
+        <svg class="cat-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c6a15b" stroke-width="1.3"><path d="M8 3h8l1 4-3 2 1 12H7L8 9 5 7l3-4z"/></svg>
+        <h3>فساتين السهرة</h3>
+        <span>أناقة للمناسبات الخاصة</span>
+      </a>
+      <a class="cat-card cat-2" href="#products">
+        <svg class="cat-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1.3"><path d="M6 4h12l2 6-4 2v8H8v-8L4 10l2-6z"/></svg>
+        <h3>العبايات</h3>
+        <span>تطريز يدوي وقصّات عصرية</span>
+      </a>
+      <a class="cat-card cat-3" href="#products">
+        <svg class="cat-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#c6a15b" stroke-width="1.3"><path d="M4 9h16v11H4V9z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+        <h3>الحقائب والإكسسوارات</h3>
+        <span>لمسة أخيرة تكمّل الإطلالة</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products" style="background:var(--cream);padding-top:90px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">الأكثر طلباً</span>
+      <h2>منتجات مختارة لكِ</h2>
+      <p>الأسعار بالريال اليمني، والكمية محدودة لكل قطعة.</p>
+    </div>
+    <div class="products">
+
+      <div class="card">
+        <div class="card-media" style="--m1:#1f524d;--m2:#0c2320;">
+          <span class="badge">جديد</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M8 3h8l1 4-3 2 1 12H7L8 9 5 7l3-4z"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">فساتين السهرة</span>
+          <h3>فستان دانتيل أسود بفتحة جانبية</h3>
+          <p class="desc">قصّة عصرية بخصر مُحدد وتطريز دانتيل، مناسب للسهرات والمناسبات.</p>
+          <div class="price-row">
+            <div class="price">32٬000 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20فستان%20الدانتيل%20الأسود" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-media" style="--m1:#4a1727;--m2:#2c0d17;">
+          <span class="badge">الأكثر مبيعاً</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M8 3h8l1 4-3 2 1 12H7L8 9 5 7l3-4z"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">فساتين السهرة</span>
+          <h3>فستان ساتان بورجندي طويل</h3>
+          <p class="desc">قماش ساتان فاخر بلمعة هادئة، مناسب لحفلات الزفاف والخطوبة.</p>
+          <div class="price-row">
+            <div class="price">38٬500 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20فستان%20الساتان%20البورجندي" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-media" style="--m1:#3d2f22;--m2:#221a13;">
+          <span class="badge">جديدنا</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M6 4h12l2 6-4 2v8H8v-8L4 10l2-6z"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">العبايات</span>
+          <h3>عباية بيج بأكمام مطرزة</h3>
+          <p class="desc">قماش كريب ناعم بتطريز هندسي على الأكمام، مريحة وراقية.</p>
+          <div class="price-row">
+            <div class="price">27٬000 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20العباية%20البيج%20المطرزة" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-media" style="--m1:#154b47;--m2:#0c2320;">
+          <span class="badge">مميز</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M6 4h12l2 6-4 2v8H8v-8L4 10l2-6z"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">العبايات</span>
+          <h3>عباية سوداء كلاسيكية موسعة</h3>
+          <p class="desc">قصّة واسعة مريحة بخامة صيفية خفيفة، مناسبة للاستخدام اليومي.</p>
+          <div class="price-row">
+            <div class="price">21٬500 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20العباية%20السوداء%20الكلاسيكية" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-media" style="--m1:#232323;--m2:#111;">
+          <span class="badge">عرض</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M4 9h16v11H4V9z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">الحقائب</span>
+          <h3>حقيبة تويد سوداء مع محفظة</h3>
+          <p class="desc">طقم حقيبة كتف وحقيبة صغيرة مرفقة بنفس الخامة، مثالية للخروجات.</p>
+          <div class="price-row">
+            <div class="price">11٬000 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20حقيبة%20التويد%20السوداء" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-media" style="--m1:#6d2338;--m2:#3d1420;">
+          <span class="badge">جديد</span>
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#e9d9b3" stroke-width="1"><path d="M4 9h16v11H4V9z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>
+        </div>
+        <div class="card-body">
+          <span class="cat-label">الحقائب</span>
+          <h3>حقيبة يد جلد بيج متوسطة</h3>
+          <p class="desc">جلد صناعي عالي الجودة بحزام قابل للتعديل، تناسب الاستخدام اليومي.</p>
+          <div class="price-row">
+            <div class="price">9٬500 <small>ريال يمني</small></div>
+            <a class="order-btn" href="https://wa.me/967734816453?text=أرغب%20بالاستفسار%20عن%20حقيبة%20اليد%20البيج" target="_blank">اطلبي الآن</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="products-footer">
+      <a class="btn-line" href="https://wa.me/967734816453" target="_blank">لمشاهدة كامل التشكيلة راسلينا على واتساب</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap section">
+    <div class="section-head">
+      <span class="kicker" style="color:var(--gold-light);">لماذا جواهر الوجيه</span>
+      <h2 style="color:var(--ivory);">تجربة تسوّق تستحقينها</h2>
+      <p style="color:#cfe0dc;">نهتم بكل تفصيلة من اختيار القماش حتى وصول الطلب إلى بابك.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>جودة مضمونة</h3>
+        <p>فحص دقيق لكل قطعة قبل التغليف والشحن.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 10h18M3 6h18M3 14h18M3 18h12"/></svg></div>
+        <h3>توصيل لكل المحافظات</h3>
+        <p>نوصل طلبك أينما كنتِ داخل اليمن.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>تشكيلة أسبوعية</h3>
+        <p>قطع جديدة كل أسبوع وبكميات محدودة.</p>
+      </div>
+      <div class="why-item">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21c-5-4-9-7.5-9-12a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.5-4 8-9 12z"/></svg></div>
+        <h3>تواصل مباشر وسريع</h3>
+        <p>فريقنا يرد على استفساراتك عبر واتساب فوراً.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block">
+  <blockquote>"الأناقة ليست في كثرة ما نملك، بل في حسن اختيار كل قطعة تُضاف إلى إطلالتنا."</blockquote>
+  <div class="who">— فلسفة جواهر الوجيه</div>
+</section>
+
+<section class="contact section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <h2>تواصلي معنا</h2>
+      <p>لديكِ استفسار عن مقاس، لون، أو موعد توصيل؟ فريقنا جاهز لمساعدتك في أي وقت.</p>
+      <ul class="contact-list">
+        <li><span class="ic">☎</span> +967 734 816 453</li>
+        <li><span class="ic">🕐</span> يومياً من 9 صباحاً حتى 10 مساءً</li>
+        <li><span class="ic">📍</span> التوصيل متوفر لجميع محافظات اليمن</li>
+      </ul>
+      <a class="btn-primary" style="background:var(--emerald-deep);color:var(--ivory);" href="https://wa.me/967734816453" target="_blank">راسلينا على واتساب</a>
+    </div>
+    <div class="contact-card">
+      <h3>اطلبي استشارة تنسيق مجانية</h3>
+      <p>أرسلي بياناتك وسنتواصل معكِ لمساعدتك في اختيار القطعة المناسبة.</p>
+      <form class="contact-form" onsubmit="event.preventDefault(); window.open('https://wa.me/967734816453?text=' + encodeURIComponent('الاسم: ' + this.name.value + ' — الطلب: ' + this.msg.value), '_blank');">
+        <input name="name" type="text" placeholder="الاسم الكامل" required>
+        <input name="phone" type="tel" placeholder="رقم الهاتف" required>
+        <textarea name="msg" rows="3" placeholder="ماذا تبحثين عنه؟"></textarea>
+        <button type="submit">إرسال عبر واتساب</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">جواهر <span>الوجيه</span></div>
+        <p style="font-size:13.5px;max-width:300px;">متجر إلكتروني يمني متخصص في الفساتين، العبايات، والحقائب — نوصل الأناقة إلى بابك.</p>
+      </div>
+      <div class="foot-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#categories">الأقسام</a></li>
+          <li><a href="#products">منتجاتنا</a></li>
+          <li><a href="#why">لماذا نحن</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li>واتساب: 453 816 734 967+</li>
+          <li>يومياً 9ص – 10م</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 جواهر الوجيه. جميع الحقوق محفوظة.</span>
+      <span>صُمم بعناية لإطلالتكِ المثالية</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/967734816453" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.1-1.34A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.27 1.18-1.75 1.24-.45.06-.98.09-1.58-.1-.36-.11-.83-.27-1.42-.53-2.5-1.08-4.13-3.6-4.26-3.77-.13-.17-1.02-1.36-1.02-2.6s.65-1.84.88-2.09c.22-.25.48-.31.65-.31.16 0 .32.002.46.008.15.007.35-.056.55.42.22.52.73 1.8.8 1.93.06.13.1.28.02.45-.08.17-.13.28-.25.43-.13.15-.27.34-.38.45-.13.13-.26.26-.11.52.15.26.68 1.12 1.46 1.82 1 .9 1.85 1.18 2.11 1.31.26.13.41.11.56-.07.15-.17.64-.75.81-1 .17-.26.34-.22.56-.13.22.09 1.42.67 1.66.79.24.11.4.17.46.27.06.11.06.6-.16 1.22z"/></svg>
+</a>
+
+</body>
+</html>
